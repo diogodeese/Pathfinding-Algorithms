@@ -3,11 +3,12 @@ import Node from "./Node/Node";
 import { dijkstra, getNodesInShortestPathOrder } from "../Algorithms/Dijkstra";
 import "./PathfindingVisualizer.css";
 
-// Setting up the default values
-const START_NODE_ROW = 10;
-const START_NODE_COL = 15;
-const FINISH_NODE_ROW = 10;
-const FINISH_NODE_COL = 35;
+  // Setting up the default values
+  const START_NODE_ROW = 10;
+  const START_NODE_COL = 15;
+  const FINISH_NODE_ROW = 10;
+  const FINISH_NODE_COL = 35;
+
 
 export default function PathfindingVisualizer() {
   const [grid, setGrid] = useState([]);
@@ -106,16 +107,30 @@ export default function PathfindingVisualizer() {
   const getNewGridWithWallToggled = (grid, row, col) => {
     const newGrid = grid.slice();
     const node = newGrid[row][col];
-    const newNode = {
-      ...node,
-      type: "wall",
+    let newNode
+
+    if(node.type === "start" || node.type === "finish") {
+      newNode = {
+        ...node,
+      };
+    } else if(node.type === "wall") {
+      newNode = {
+        ...node,
+        type: ""
+      };
+    } else {
+      newNode = {
+        ...node,
+        type: "wall"
+      };
     };
+
     newGrid[row][col] = newNode;
     return newGrid;
   };
 
   return (
-    <>
+    <div className="pathfinding-visualizer">
       <button onClick={() => visualizeDijkstra(grid)} className="button">
         Visualize Dijkstra's Algorithm
       </button>
@@ -123,9 +138,9 @@ export default function PathfindingVisualizer() {
         Clear Border
       </button>
       <div className="grid">
-        {grid.map((row, rowIdx) => {
+        {grid.map((row, rowIndex) => {
           return (
-            <div key={rowIdx}>
+            <div key={rowIndex}>
               {row.map((node, nodeIdx) => {
                 const { row, col, type } = node;
                 return (
@@ -145,6 +160,6 @@ export default function PathfindingVisualizer() {
           );
         })}
       </div>
-    </>
+    </div>
   );
 }

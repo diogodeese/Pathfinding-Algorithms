@@ -1,3 +1,9 @@
+.pathfinding-visualizer {
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
 .grid {
-  margin: 100px 0 0;
+  margin: 15% 0 0;
 }
