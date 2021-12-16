@@ -58,3 +58,46 @@ export function getNodesInShortestPathOrder(finishNode) {
   }
   return nodesInShortestPathOrder;
 }
+
+// Calls all the needed functions to get the algorithm up and running
+export function visualizeDijkstra(
+  grid,
+  startNodeRow,
+  startNodeCol,
+  finishNodeRow,
+  finishNodeCol
+) {
+  const startNode = grid[startNodeRow][startNodeCol];
+  const finishNode = grid[finishNodeRow][finishNodeCol];
+  const visitedNodesInOrder = dijkstra(grid, startNode, finishNode);
+  const nodesInShortestPathOrder = getNodesInShortestPathOrder(finishNode);
+  animateDijkstra(visitedNodesInOrder, nodesInShortestPathOrder);
+}
+
+// Animates the Dijktra algorithm working
+function animateDijkstra(visitedNodesInOrder, nodesInShortestPathOrder) {
+  for (let i = 0; i <= visitedNodesInOrder.length; i++) {
+    if (i === visitedNodesInOrder.length) {
+      setTimeout(() => {
+        animateShortestPath(nodesInShortestPathOrder);
+      }, 10 * i);
+      return;
+    }
+    setTimeout(() => {
+      const node = visitedNodesInOrder[i];
+      document.getElementById(`node-${node.row}-${node.col}`).className =
+        "node node-visited";
+    }, 10 * i);
+  }
+}
+
+// Animates the shortest path when the algorithm reaches the end point
+function animateShortestPath(nodesInShortestPathOrder) {
+  for (let i = 0; i < nodesInShortestPathOrder.length; i++) {
+    setTimeout(() => {
+      const node = nodesInShortestPathOrder[i];
+      document.getElementById(`node-${node.row}-${node.col}`).className =
+        "node node-shortest-path";
+    }, 50 * i);
+  }
+}
