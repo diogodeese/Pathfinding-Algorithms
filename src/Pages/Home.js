@@ -3,7 +3,13 @@ import PathfindingVisualizer from "../PathfindingVisualizer/PathfindingVisualize
 
 export default function Home() {
   return (
-    <div style={{ display: "flex", alignItems: "center", justifyContent: "center"}}>
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
       <PathfindingVisualizer />
     </div>
   );
