@@ -111,7 +111,7 @@ export default function PathfindingVisualizer() {
           }}
           className="button"
         >
-          Clear Border
+          Clear Board
         </button>
       </div>
       <div className="grid">
