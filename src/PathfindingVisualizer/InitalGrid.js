@@ -43,6 +43,14 @@ export function getInitialGrid(
           finishNodeCol
         )
       );
+      if (
+        (row === startNodeRow && col === startNodeCol) ||
+        (row === finishNodeRow && col === finishNodeCol)
+      )
+        continue;
+
+      if (document.getElementById(`node-${row}-${col}`))
+        document.getElementById(`node-${row}-${col}`).className = "node";
     }
     grid.push(currentRow);
   }

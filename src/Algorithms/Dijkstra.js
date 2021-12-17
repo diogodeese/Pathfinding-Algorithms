@@ -71,20 +71,47 @@ export function visualizeDijkstra(
   const finishNode = grid[finishNodeRow][finishNodeCol];
   const visitedNodesInOrder = dijkstra(grid, startNode, finishNode);
   const nodesInShortestPathOrder = getNodesInShortestPathOrder(finishNode);
-  animateDijkstra(visitedNodesInOrder, nodesInShortestPathOrder);
+  animateDijkstra(
+    visitedNodesInOrder,
+    nodesInShortestPathOrder,
+    startNodeRow,
+    startNodeCol,
+    finishNodeRow,
+    finishNodeCol
+  );
 }
 
 // Animates the Dijktra algorithm working
-function animateDijkstra(visitedNodesInOrder, nodesInShortestPathOrder) {
+function animateDijkstra(
+  visitedNodesInOrder,
+  nodesInShortestPathOrder,
+  startNodeRow,
+  startNodeCol,
+  finishNodeRow,
+  finishNodeCol
+) {
   for (let i = 0; i <= visitedNodesInOrder.length; i++) {
     if (i === visitedNodesInOrder.length) {
       setTimeout(() => {
-        animateShortestPath(nodesInShortestPathOrder);
+        animateShortestPath(
+          nodesInShortestPathOrder,
+          startNodeRow,
+          startNodeCol,
+          finishNodeRow,
+          finishNodeCol
+        );
       }, 10 * i);
       return;
     }
     setTimeout(() => {
       const node = visitedNodesInOrder[i];
+
+      if (
+        (node.row === startNodeRow && node.col === startNodeCol) ||
+        (node.row === finishNodeRow && node.col === finishNodeCol)
+      )
+        return;
+
       document.getElementById(`node-${node.row}-${node.col}`).className =
         "node node-visited";
     }, 10 * i);
@@ -92,10 +119,23 @@ function animateDijkstra(visitedNodesInOrder, nodesInShortestPathOrder) {
 }
 
 // Animates the shortest path when the algorithm reaches the end point
-function animateShortestPath(nodesInShortestPathOrder) {
+function animateShortestPath(
+  nodesInShortestPathOrder,
+  startNodeRow,
+  startNodeCol,
+  finishNodeRow,
+  finishNodeCol
+) {
   for (let i = 0; i < nodesInShortestPathOrder.length; i++) {
     setTimeout(() => {
       const node = nodesInShortestPathOrder[i];
+
+      if (
+        (node.row === startNodeRow && node.col === startNodeCol) ||
+        (node.row === finishNodeRow && node.col === finishNodeCol)
+      )
+        return;
+
       document.getElementById(`node-${node.row}-${node.col}`).className =
         "node node-shortest-path";
     }, 50 * i);
