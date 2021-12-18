@@ -164,7 +164,7 @@ function animateShortestPath(
       setTimeout(async () => {
         document.getElementById(`node-${node.row}-${node.col}`).className =
           "node node-shortest-path";
-      }, 45);
-    }, 50 * i);
+      }, 90);
+    }, 100 * i);
   }
 }
