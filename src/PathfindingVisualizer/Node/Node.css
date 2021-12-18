@@ -9,9 +9,9 @@
   background-color: #fff;
 }
 
-.finish {
-  /*background-color: #d91c1c;*/
-  background-image: url(../../svg/target.svg);
+.start {
+  /*background-color: #1cd93b;*/
+  background-image: url(../../svg/arrow-right.svg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -26,9 +26,9 @@
   outline: 0px;
 }
 
-.start {
-  /*background-color: #1cd93b;*/
-  background-image: url(../../svg/arrow-right.svg);
+.finish {
+  /*background-color: #d91c1c;*/
+  background-image: url(../../svg/target.svg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -62,6 +62,81 @@
   animation-play-state: running;
 }
 
+.node-shortest-path {
+  animation-name: shortestPath;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-out;
+  animation-delay: 0ms;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+}
+
+.right {
+  background-image: url(../../svg/arrow-right.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  animation-name: specialNodes;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+  outline: 0px;
+}
+
+.left {
+  background-image: url(../../svg/arrow-left.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  animation-name: specialNodes;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+  outline: 0px;
+}
+
+.down {
+  background-image: url(../../svg/arrow-down.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  animation-name: specialNodes;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+  outline: 0px;
+}
+
+.up {
+  background-image: url(../../svg/arrow-up.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  animation-name: specialNodes;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+  outline: 0px;
+}
+
 @keyframes visitedAnimation {
   0% {
     transform: scale(0.3);
@@ -84,17 +159,6 @@
   }
 }
 
-.node-shortest-path {
-  animation-name: shortestPath;
-  animation-duration: 1.5s;
-  animation-timing-function: ease-out;
-  animation-delay: 0ms;
-  animation-direction: alternate;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-  animation-play-state: running;
-}
-
 @keyframes shortestPath {
   0% {
     transform: scale(0.6);
@@ -112,66 +176,19 @@
   }
 }
 
-.right {
-  background-image: url(../../svg/arrow-right.svg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  animation-name: specialNodes;
-  animation-duration: 2s;
-  animation-timing-function: ease-out;
-  animation-delay: 0;
-  animation-direction: alternate;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-  animation-play-state: running;
-  outline: 0px;
-}
+@keyframes specialNodes {
+  0% {
+    transform: scale(0.4);
+    /*background-color: darkslategrey;*/
+  }
 
-.left {
-  background-image: url(../../svg/arrow-left.svg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  animation-name: specialNodes;
-  animation-duration: 2s;
-  animation-timing-function: ease-out;
-  animation-delay: 0;
-  animation-direction: alternate;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-  animation-play-state: running;
-  outline: 0px;
-}
+  50% {
+    transform: scale(1.4);
+    /*background-color: darkslategrey;*/
+  }
 
-.down {
-  background-image: url(../../svg/arrow-down.svg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  animation-name: specialNodes;
-  animation-duration: 2s;
-  animation-timing-function: ease-out;
-  animation-delay: 0;
-  animation-direction: alternate;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-  animation-play-state: running;
-  outline: 0px;
-}
-
-.up {
-  background-image: url(../../svg/arrow-up.svg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  animation-name: specialNodes;
-  animation-duration: 2s;
-  animation-timing-function: ease-out;
-  animation-delay: 0;
-  animation-direction: alternate;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-  animation-play-state: running;
-  outline: 0px;
+  100% {
+    transform: scale(1);
+    /*background-color: darkslategrey;*/
+  }
 }
