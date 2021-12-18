@@ -1,3 +1,27 @@
+// Calls all the needed functions to get the algorithm up and running
+export function visualizeDijkstra(
+  grid,
+  startNodeRow,
+  startNodeCol,
+  finishNodeRow,
+  finishNodeCol,
+  setIsAnimationRunning
+) {
+  const startNode = grid[startNodeRow][startNodeCol];
+  const finishNode = grid[finishNodeRow][finishNodeCol];
+  const visitedNodesInOrder = dijkstra(grid, startNode, finishNode);
+  const nodesInShortestPathOrder = getNodesInShortestPathOrder(finishNode);
+  animateDijkstra(
+    visitedNodesInOrder,
+    nodesInShortestPathOrder,
+    startNodeRow,
+    startNodeCol,
+    finishNodeRow,
+    finishNodeCol
+  );
+  return false;
+}
+
 export function dijkstra(grid, startNode, finishNode) {
   const visitedNodesInOrder = [];
   startNode.distance = 0;
@@ -57,28 +81,6 @@ export function getNodesInShortestPathOrder(finishNode) {
     currentNode = currentNode.previousNode;
   }
   return nodesInShortestPathOrder;
-}
-
-// Calls all the needed functions to get the algorithm up and running
-export function visualizeDijkstra(
-  grid,
-  startNodeRow,
-  startNodeCol,
-  finishNodeRow,
-  finishNodeCol
-) {
-  const startNode = grid[startNodeRow][startNodeCol];
-  const finishNode = grid[finishNodeRow][finishNodeCol];
-  const visitedNodesInOrder = dijkstra(grid, startNode, finishNode);
-  const nodesInShortestPathOrder = getNodesInShortestPathOrder(finishNode);
-  animateDijkstra(
-    visitedNodesInOrder,
-    nodesInShortestPathOrder,
-    startNodeRow,
-    startNodeCol,
-    finishNodeRow,
-    finishNodeCol
-  );
 }
 
 // Animates the Dijktra algorithm working
