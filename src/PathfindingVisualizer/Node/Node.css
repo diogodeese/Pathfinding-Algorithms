@@ -47,6 +47,10 @@
   background-color: #303030;
 }
 
+.instantvisited {
+  background-color: rgba(233, 250, 0, 0.75);
+}
+
 .node-visited {
   animation-name: visitedAnimation;
   animation-duration: 1.5s;
@@ -106,4 +110,68 @@
     transform: scale(1);
     background-color: #e583fc;
   }
+}
+
+.right {
+  background-image: url(../../svg/arrow-right.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  animation-name: specialNodes;
+  animation-duration: 2s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+  outline: 0px;
+}
+
+.left {
+  background-image: url(../../svg/arrow-left.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  animation-name: specialNodes;
+  animation-duration: 2s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+  outline: 0px;
+}
+
+.down {
+  background-image: url(../../svg/arrow-down.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  animation-name: specialNodes;
+  animation-duration: 2s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+  outline: 0px;
+}
+
+.up {
+  background-image: url(../../svg/arrow-up.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  animation-name: specialNodes;
+  animation-duration: 2s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+  outline: 0px;
 }

@@ -105,7 +105,6 @@ function animateDijkstra(
     }
     setTimeout(() => {
       const node = visitedNodesInOrder[i];
-
       if (
         (node.row === startNodeRow && node.col === startNodeCol) ||
         (node.row === finishNodeRow && node.col === finishNodeCol)
@@ -113,7 +112,12 @@ function animateDijkstra(
         return;
 
       document.getElementById(`node-${node.row}-${node.col}`).className =
-        "node node-visited";
+        "node instantvisited";
+
+      setTimeout(async () => {
+        document.getElementById(`node-${node.row}-${node.col}`).className =
+          "node node-visited";
+      }, 1);
     }, 10 * i);
   }
 }
@@ -128,6 +132,7 @@ function animateShortestPath(
 ) {
   for (let i = 0; i < nodesInShortestPathOrder.length; i++) {
     setTimeout(() => {
+      const lastNode = nodesInShortestPathOrder[i - 1];
       const node = nodesInShortestPathOrder[i];
 
       if (
@@ -136,8 +141,30 @@ function animateShortestPath(
       )
         return;
 
-      document.getElementById(`node-${node.row}-${node.col}`).className =
-        "node node-shortest-path";
+      if (node.col > lastNode.col) {
+        document.getElementById(`node-${node.row}-${node.col}`).className =
+          "node right";
+      }
+
+      if (node.col < lastNode.col) {
+        document.getElementById(`node-${node.row}-${node.col}`).className =
+          "node left";
+      }
+
+      if (node.row > lastNode.row) {
+        document.getElementById(`node-${node.row}-${node.col}`).className =
+          "node down";
+      }
+
+      if (node.row < lastNode.row) {
+        document.getElementById(`node-${node.row}-${node.col}`).className =
+          "node up";
+      }
+
+      setTimeout(async () => {
+        document.getElementById(`node-${node.row}-${node.col}`).className =
+          "node node-shortest-path";
+      }, 45);
     }, 50 * i);
   }
 }
