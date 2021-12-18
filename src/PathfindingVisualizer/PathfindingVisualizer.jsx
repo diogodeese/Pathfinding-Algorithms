@@ -114,6 +114,34 @@ export default function PathfindingVisualizer() {
           Clear Board
         </button>
       </div>
+      <div className="legend">
+        <ul>
+          <li>
+            <div className="node start"></div>
+            <h2>Start Node</h2>
+          </li>
+          <li>
+            <div className="node finish"></div>
+            <h2>Target Node</h2>
+          </li>
+          <li>
+            <div className="node"></div>
+            <h2>Unvisited Node</h2>
+          </li>
+          <li>
+            <div className="node node-visited"></div>
+            <h2>Visited Node</h2>
+          </li>
+          <li>
+            <div className="node node-shortest-path"></div>
+            <h2>Shortest Path Node</h2>
+          </li>
+          <li>
+            <div className="node wall"></div>
+            <h2>Wall Node</h2>
+          </li>
+        </ul>
+      </div>
       <div className="grid">
         {grid.map((row, rowIndex) => {
           return (
