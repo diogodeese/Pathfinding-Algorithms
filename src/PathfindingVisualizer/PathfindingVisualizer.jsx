@@ -74,45 +74,49 @@ export default function PathfindingVisualizer() {
   return (
     <div className="pathfinding-visualizer">
       <div className="bar">
-        <h1 className="title">Pathfinding Algorithms</h1>
+        <div className="bar-left">
+          <h1 className="title">Pathfinding Algorithms</h1>
 
-        <select
-          onChange={(e) => {
-            setChoosenAlgorithm(e.target.value);
-          }}
-        >
-          {algorithms.map((algorithm) => {
-            return <option>{algorithm}</option>;
-          })}
-        </select>
-        <button
-          onClick={() =>
-            visualizeDijkstra(
-              grid,
-              START_NODE_ROW,
-              START_NODE_COL,
-              FINISH_NODE_ROW,
-              FINISH_NODE_COL
-            )
-          }
-          className="button"
-        >
-          Visualize {choosenAlgorithm}
-        </button>
-        <button
-          onClick={() => {
-            const restartGrid = getInitialGrid(
-              START_NODE_ROW,
-              START_NODE_COL,
-              FINISH_NODE_ROW,
-              FINISH_NODE_COL
-            );
-            setGrid(restartGrid);
-          }}
-          className="button"
-        >
-          Clear Board
-        </button>
+          <select
+            onChange={(e) => {
+              setChoosenAlgorithm(e.target.value);
+            }}
+          >
+            {algorithms.map((algorithm) => {
+              return <option>{algorithm}</option>;
+            })}
+          </select>
+        </div>
+        <div className="bar-right">
+          <button
+            onClick={() =>
+              visualizeDijkstra(
+                grid,
+                START_NODE_ROW,
+                START_NODE_COL,
+                FINISH_NODE_ROW,
+                FINISH_NODE_COL
+              )
+            }
+            className="button"
+          >
+            Visualize {choosenAlgorithm}
+          </button>
+          <button
+            onClick={() => {
+              const restartGrid = getInitialGrid(
+                START_NODE_ROW,
+                START_NODE_COL,
+                FINISH_NODE_ROW,
+                FINISH_NODE_COL
+              );
+              setGrid(restartGrid);
+            }}
+            className="button"
+          >
+            Clear Board
+          </button>
+        </div>
       </div>
       <div className="legend">
         <ul>

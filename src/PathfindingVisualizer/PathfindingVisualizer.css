@@ -12,6 +12,17 @@
   background-color: #3d3d3d;
 }
 
+.bar-left {
+  width: 50%;
+  float: left;
+  display: flex;
+}
+
+.bar-right {
+  width: 50%;
+  float: right;
+}
+
 .legend {
   display: flex;
   align-items: center;
@@ -45,6 +56,20 @@ h2 {
   color: #fff;
   margin-right: 50px;
   line-height: 0px;
+}
+
+select {
+  background-color: transparent;
+  border: none;
+  margin-left: 25px;
+  padding: 0 1em 0 0;
+  width: 150px;
+  color: #fff;
+  font-family: "Work Sans", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  line-height: inherit;
 }
 
 .button {
