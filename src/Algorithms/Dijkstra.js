@@ -4,8 +4,7 @@ export function visualizeDijkstra(
   startNodeRow,
   startNodeCol,
   finishNodeRow,
-  finishNodeCol,
-  setIsAnimationRunning
+  finishNodeCol
 ) {
   const startNode = grid[startNodeRow][startNodeCol];
   const finishNode = grid[finishNodeRow][finishNodeCol];
