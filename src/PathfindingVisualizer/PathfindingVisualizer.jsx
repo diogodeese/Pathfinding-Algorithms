@@ -13,7 +13,7 @@ const FINISH_NODE_COL = 35;
 const algorithms = ["Dijkstra"];
 
 export default function PathfindingVisualizer() {
-  const [choosenAlgorithm, setChoosenAlgorithm] = useState(algorithms[0]);
+  const [choosenAlgorithm, setChosenAlgorithm] = useState(algorithms[0]);
   const [grid, setGrid] = useState([]);
   const [mouseIsPressed, setMouseIsPressed] = useState(false);
 
@@ -79,7 +79,7 @@ export default function PathfindingVisualizer() {
 
           <select
             onChange={(e) => {
-              setChoosenAlgorithm(e.target.value);
+              setChosenAlgorithm(e.target.value);
             }}
           >
             {algorithms.map((algorithm) => {
